@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Audiowide&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Offside&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Space+Grotesk:wght@300..700&family=Tangerine:wght@400;700&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root{
+    --poppin:var(--poppin);
+    --refonte-color-header-bg: rgba(10, 15, 31, .88);
+    --refonte-color-header-bg-solid: #080c1f;
+    --refonte-color-header-border: hsla(0, 0%, 92%, .16);
+    --refonte-color-text-muted: #aebac7;
+    --refonte-color-accent: #ff5000;
+    --refonte-color-focus: #22d3ee;
+    --refonte-color-hover-pill: hsla(0, 0%, 100%, .12);
+    --refonte-color-live: #ff2738;
+    --refonte-color-page-bg: #0a0f0f;
+    --refonte-color-surface-1: #151f1f;
+    --refonte-color-surface-2: rgba(21, 31, 31, .78);
+}
