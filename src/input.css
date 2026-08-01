@@ -25,7 +25,8 @@
     }
 
 button{
-    border: 1px ridge white;
+    border: 1px ridge rgba(255, 255, 255, 0.156);
     border-radius: 5px;
-    padding: 2px 5px;
+    padding: 2px 10px;
+    background-color: #2f00046e;
 }

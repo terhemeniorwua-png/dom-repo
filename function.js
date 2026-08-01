@@ -15,6 +15,7 @@ const addItem = () =>{
 
     let newBtn = document.createElement('button');
     newBtn.textContent = 'Delete';
+    newBtn.className = 'delete'
     newElement.appendChild(newBtn)
 
 
@@ -24,5 +25,22 @@ const addItem = () =>{
 }
 
 
+let btn = document.querySelector('list pDiv .button');
+
+
+function deleteItems(e){
+
+
+    if(e.target.className === 'delete'){
+        let li = e.target.parentElement;
+        list.remove(li)
+    }
+
+}
+
+
+
 
 button.addEventListener('click', addItem)
+
+list.addEventListener('click', (e)=>{deleteItems(e)})
