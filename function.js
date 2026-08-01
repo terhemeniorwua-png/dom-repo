@@ -5,7 +5,7 @@ let list = document.querySelector('ul')
 
 const addItem = () =>{
 
-    let newElement = document.createElement('div');
+    let newElement = document.createElement('li');
     newElement.className = 'pDiv'
 
     let newitem = document.createElement('span');
@@ -25,17 +25,12 @@ const addItem = () =>{
 }
 
 
-let btn = document.querySelector('list pDiv .button');
-
-
 function deleteItems(e){
 
-
-    if(e.target.className === 'delete'){
-        let li = e.target.parentElement;
-        list.remove(li)
+    if(e.target.className == 'delete'){
+        let li = e.target.parentElement;    
+        list.removeChild(li)
     }
-
 }
 
 
