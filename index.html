@@ -9,14 +9,29 @@
 <body>
       <!-- <img src="img/female.png" alt="Female Profile" id="img" title="Woman">
     <p class="text-red-500" id="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus corporis illo, esse laboriosam, deserunt, id veniam quo natus libero voluptatem fugiat ut doloremque nobis laudantium vitae nulla blanditiis amet sequi.</p> -->
+<div id="contents" class=" w-[50%] m-auto shadow-2xl text-center mt-20"></div>
+<div class="px-[10%] w-[80%] m-auto pt-[2%] flex justify-center items-center border-b pb-5 border-b-amber-800 leading-5">
 
-<div id="contents" class="px-[10%] pt-[2%] leading-5"></div>
-<div class="flex justify-end pr-36">
-    <button class="btn border bg-blue-500 ml-20 p-1 px-5 rounded">Click me</button>
+
+    <button name="btn" class="btn border bg-blue-500 ml-20 p-1 py-2 px-5 rounded">Click me</button>
+    <button name="btn" class="updBtn border bg-blue-500 ml-20 p-1 py-2 px-5 rounded">Update post</button>
+    <button name="btn" class="updBtn2 border bg-blue-500 ml-20 p-1 py-2 px-5 rounded">Update a post</button>
+    <button name="btn" class="deletBtn border bg-blue-500 ml-20 p-1 py-2 px-5 rounded">Delete post</button>
+
 </div>
 
-<div class="flex justify-end pr-36 mt-10">
-    <button class="updBtn border bg-blue-500 ml-20 p-1 px-5 rounded">Update post</button>
+<!-- dialog box -->
+    <div>
+        <dialog class="dialog mt-20 w-[50%] shadow-2xl border border-amber-800 m-auto text-center py-20">
+            <h1 class="text-5xl heading">Error</h1>
+            <p class="erromssg pt-5 text-xl"></p>
+
+           <div class="flex justify-end">
+             <button class=" border bg-blue-500 mr-20 p-1 px-5 rounded cancelBtn">Cancel</button>
+           </div>
+           
+        </dialog>
+    </div>
 </div>
 
     <script src="post.js"></script>
