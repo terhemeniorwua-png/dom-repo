@@ -16,3 +16,16 @@
     --refonte-color-surface-1: #151f1f;
     --refonte-color-surface-2: rgba(21, 31, 31, .78);
 }
+
+    .pDiv{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 50px;
+    }
+
+button{
+    border: 1px ridge white;
+    border-radius: 5px;
+    padding: 2px 5px;
+}
