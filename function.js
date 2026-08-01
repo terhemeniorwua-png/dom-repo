@@ -39,3 +39,52 @@ function deleteItems(e){
 button.addEventListener('click', addItem)
 
 list.addEventListener('click', (e)=>{deleteItems(e)})
+
+
+
+let count = document.querySelector('.count')
+let increament = document.querySelector('#increase')
+let decrease = document.querySelector('#Decrease')
+let reset = document.querySelector('#Reset')
+
+ 
+    
+function changeNumber(e){
+
+    let clicked = e.target;
+    if(clicked.id === 'increase'){
+        count.innerHTML = Number(count.innerHTML) + 1;
+
+    } else if(clicked.id === 'Decrease'){
+        count.innerHTML = Number(count.innerHTML) - 1;
+
+    }  else if(clicked.id === 'Reset'){
+        count.innerHTML = 0;
+
+    } 
+
+    // color change
+
+    if(count.innerHTML > 0){
+        count.style.color ='green'
+    } else if(count === 0){
+        count.style.color = 'black'
+    } else{
+        count.style.color = 'red'
+    }
+  
+}
+
+
+if(increament)
+
+       if(count.innerHTML === 10){
+
+        increament.removeEventListener('click', (e)=>{changeNumber(e)})
+        
+    } else if(count.innerHTML === -10){
+        decrease.removeEventListener('click', (e)=>{changeNumber(e)})
+    }
+    increament.addEventListener('click', (e)=>{changeNumber(e)})
+decrease.addEventListener('click', (e)=>{changeNumber(e)})
+reset.addEventListener('click', (e)=>{changeNumber(e)})
