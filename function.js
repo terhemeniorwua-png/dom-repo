@@ -53,9 +53,17 @@ function changeNumber(e){
 
     let clicked = e.target;
     if(clicked.id === 'increase'){
+        if(count.innerHTML == 10){
+            alert('Limit reached')
+            return
+        }
         count.innerHTML = Number(count.innerHTML) + 1;
 
     } else if(clicked.id === 'Decrease'){
+        if(count.innerHTML == -10){
+            alert('Limit reached')
+            return
+        }
         count.innerHTML = Number(count.innerHTML) - 1;
 
     }  else if(clicked.id === 'Reset'){
@@ -67,24 +75,24 @@ function changeNumber(e){
 
     if(count.innerHTML > 0){
         count.style.color ='green'
-    } else if(count === 0){
+    } if(count.innerHTML == 0){
         count.style.color = 'black'
-    } else{
+    } if(count.innerHTML < 0){
         count.style.color = 'red'
     }
   
 }
 
 
-if(increament)
+// if(increament)
 
-       if(count.innerHTML === 10){
-
-        increament.removeEventListener('click', (e)=>{changeNumber(e)})
+//        if(count.innerHTML > 10){
+//         alert('Limit reached')
+//         increament.removeEventListener('click', (e)=>{changeNumber(e)})
         
-    } else if(count.innerHTML === -10){
-        decrease.removeEventListener('click', (e)=>{changeNumber(e)})
-    }
+//     } else if(count.innerHTML === -10){
+//         decrease.removeEventListener('click', (e)=>{changeNumber(e)})
+//     }
     increament.addEventListener('click', (e)=>{changeNumber(e)})
 decrease.addEventListener('click', (e)=>{changeNumber(e)})
 reset.addEventListener('click', (e)=>{changeNumber(e)})
