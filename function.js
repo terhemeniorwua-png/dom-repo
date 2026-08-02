@@ -3,42 +3,69 @@ let button = document.querySelector('#button');
 let searchBar = document.querySelector('#searchBar')
 let list = document.querySelector('ul')
 
-const addItem = () =>{
+let timeStamp = task =>{
+    setTimeout(() =>{
+        task.classList.toggle('italic')
+        task.classList.toggle('line-through')
+    }, 5000)
+}
 
-    let newElement = document.createElement('li');
-    newElement.className = 'pDiv'
+const addtask = () =>{
 
-    let newitem = document.createElement('span');
-    newitem.textContent = searchBar.value
-    newElement.appendChild(newitem);
-   
+    let inputVal = searchBar.value
+    if(inputVal.trim() === ''){
+        alert('Input a task')
+    } else{
 
-    let newBtn = document.createElement('button');
-    newBtn.textContent = 'Delete';
-    newBtn.className = 'delete'
-    newElement.appendChild(newBtn)
+        let newElement = document.createElement('li');
+        newElement.classList.add('flex')
+        newElement.classList.add('items-center')
+        newElement.classList.add('justify-between')
 
+        let newChildElemet = document.createElement('p');
+        newChildElemet.textContent = inputVal;
+        newElement.appendChild(newChildElemet);
 
- list.appendChild(newElement)
-    
-    searchBar.value = ''
+        let newBtn = document.createElement('button');
+        newBtn.textContent = 'Delete';
+        newBtn.id = 'button2'
+        newElement.appendChild(newBtn);
+
+        list.appendChild(newElement)
+
+    timeStamp(newElement)
+
+        inputVal = ""
+    }
 }
 
 
-function deleteItems(e){
-
-    if(e.target.className == 'delete'){
-        let li = e.target.parentElement;    
-        list.removeChild(li)
+const deleteTask = e =>{
+    const clicked = e.target.closest('#button2')
+    if(clicked){
+        const toBeRemoved = e.target.parentElement
+        list.removeChild(toBeRemoved)
     }
 }
 
 
 
 
-button.addEventListener('click', addItem)
 
-list.addEventListener('click', (e)=>{deleteItems(e)})
+
+button.addEventListener('click', addtask)
+
+list.addEventListener('click', (e)=>{deleteTask(e)})
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -52,47 +79,47 @@ let reset = document.querySelector('#Reset')
 function changeNumber(e){
 
     let clicked = e.target;
-    if(clicked.id === 'increase'){
-        if(count.innerHTML == 10){
+    if(clicked.id === 'increase' || clicked.value == ' '){
+        if(count.textContent == 10){
             alert('Limit reached')
             return
         }
-        count.innerHTML = Number(count.innerHTML) + 1;
+        count.textContent = Number(count.textContent) + 1;
 
     } else if(clicked.id === 'Decrease'){
-        if(count.innerHTML == -10){
+        if(count.textContent == -10){
             alert('Limit reached')
             return
         }
-        count.innerHTML = Number(count.innerHTML) - 1;
+        count.textContent = Number(count.textContent) - 1;
 
     }  else if(clicked.id === 'Reset'){
-        count.innerHTML = 0;
+        count.textContent = 0;
 
     } 
 
     // color change
 
-    if(count.innerHTML > 0){
+    if(count.textContent > 0){
         count.style.color ='green'
-    } if(count.innerHTML == 0){
+    } if(count.textContent == 0){
         count.style.color = 'black'
-    } if(count.innerHTML < 0){
+    } if(count.textContent < 0){
         count.style.color = 'red'
     }
   
 }
 
 
-// if(increament)
+function resett(){
+    count.textContent = 0;
+    count.style.color = 'black'
+}
 
-//        if(count.innerHTML > 10){
-//         alert('Limit reached')
-//         increament.removeEventListener('click', (e)=>{changeNumber(e)})
-        
-//     } else if(count.innerHTML === -10){
-//         decrease.removeEventListener('click', (e)=>{changeNumber(e)})
-//     }
+
+count.addEventListener('dblclick', resett)
+
+
     increament.addEventListener('click', (e)=>{changeNumber(e)})
 decrease.addEventListener('click', (e)=>{changeNumber(e)})
 reset.addEventListener('click', (e)=>{changeNumber(e)})
