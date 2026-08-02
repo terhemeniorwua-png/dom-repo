@@ -2,6 +2,7 @@
 let button = document.querySelector('#button');
 let searchBar = document.querySelector('#searchBar')
 let list = document.querySelector('ul')
+let listCount = document.querySelector('.listCount')
 
 let timeStamp = task =>{
     setTimeout(() =>{
@@ -10,6 +11,10 @@ let timeStamp = task =>{
     }, 5000)
 }
 
+
+let tasks = new Set()
+
+
 const addtask = () =>{
 
     let inputVal = searchBar.value
@@ -17,35 +22,54 @@ const addtask = () =>{
         alert('Input a task')
     } else{
 
+    tasks.add(inputVal)
+
         let newElement = document.createElement('li');
-        newElement.classList.add('flex')
-        newElement.classList.add('items-center')
-        newElement.classList.add('justify-between')
+        newElement.classList.add(
+            'flex',
+            'items-center',
+            'justify-between'
+        )
 
         let newChildElemet = document.createElement('p');
         newChildElemet.textContent = inputVal;
         newElement.appendChild(newChildElemet);
+
+        if(tasks.has(inputVal)){
+    alert('Task already exist');
+    return;
+    
+}
 
         let newBtn = document.createElement('button');
         newBtn.textContent = 'Delete';
         newBtn.id = 'button2'
         newElement.appendChild(newBtn);
 
+listCount.innerHTML = tasks.size
         list.appendChild(newElement)
 
     timeStamp(newElement)
 
-        inputVal = ""
+        searchBar.value = ""
+      
     }
 }
 
 
 const deleteTask = e =>{
+
+
     const clicked = e.target.closest('#button2')
     if(clicked){
         const toBeRemoved = e.target.parentElement
-        list.removeChild(toBeRemoved)
+        list.removeChild(toBeRemoved);
+        const text = toBeRemoved.querySelector("p").textContent;
+        tasks.delete(text)
+        listCount.innerHTML = tasks.size
+        console.log(tasks)
     }
+
 }
 
 
@@ -57,7 +81,7 @@ button.addEventListener('click', addtask)
 
 list.addEventListener('click', (e)=>{deleteTask(e)})
 
-
+// list.addEventListener('dblclick', (e)=>{deleteTask(e)})
 
 
 
