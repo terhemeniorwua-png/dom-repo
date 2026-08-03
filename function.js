@@ -35,11 +35,10 @@ const addtask = () =>{
         newChildElemet.textContent = inputVal;
         newElement.appendChild(newChildElemet);
 
-        if(tasks.has(inputVal)){
-    alert('Task already exist');
-    return;
-    
-}
+        // if(tasks.has(inputVal)){
+        // alert('Task already exist');
+        // return;
+        // }
 
         let newBtn = document.createElement('button');
         newBtn.textContent = 'Delete';
@@ -56,32 +55,48 @@ listCount.innerHTML = tasks.size
     }
 }
 
+const editTask = e =>{
+    let dbDlicked = e.target.closest('li');
+
+    if(dbDlicked){
+        console.log('double clicked')
+    }
+   
+}
 
 const deleteTask = e =>{
 
 
     const clicked = e.target.closest('#button2')
+    const click = e.target.closest('li')
+    
     if(clicked){
         const toBeRemoved = e.target.parentElement
         list.removeChild(toBeRemoved);
+
         const text = toBeRemoved.querySelector("p").textContent;
         tasks.delete(text)
         listCount.innerHTML = tasks.size
-        console.log(tasks)
+      
+    } else if(click){
+        click.classList.toggle('line-through')
     }
-
+    
 }
 
 
 
+console.log(tasks)
 
 
+
+list.addEventListener('dblclick', (e)=>{editTask(e)})
 
 button.addEventListener('click', addtask)
 
 list.addEventListener('click', (e)=>{deleteTask(e)})
 
-// list.addEventListener('dblclick', (e)=>{deleteTask(e)})
+
 
 
 
