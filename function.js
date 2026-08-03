@@ -57,7 +57,6 @@ listCount.innerHTML = tasks.size
 
 const editTask = e =>{
     let dbDlicked = e.target.closest('li');
-
     if(dbDlicked){
         console.log('double clicked')
     }
