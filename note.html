@@ -6,16 +6,23 @@
     <title>Document</title>
     <link rel="stylesheet" href="src/output.css">
 </head>
-<body class="bg-[#000]">
-    <div>
+<body class="bg-[#000] text-white">
+    <div class="grid grid-cols-2 pt-10 px-5">
+        <div>
+            <h1 class="text-5xl font-black">My Note</h1>
+             <ul class="pt-5 text-xl px-10"></ul>
+        </div>
+
         <div>
             <form action="">
-               <textarea name=""value="No note yet" class="border text-white m-5" cols="50" rows="5" id=""></textarea>
+                <h1 class="text-5xl font-black">Enter a note here</h1>
+               <textarea name="" value="No note yet" class="border m-5 p-2" cols="50" rows="5" id=""></textarea>
+               <input type="button" value="Add" id="noteBtn">
             </form>
         </div>
-        <ul></ul>
+       
     </div>
-
+<!-- <button><a href="home.html">home</a></button> -->
 
     <script src="note.js"></script>
 </body>
